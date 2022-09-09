@@ -22,7 +22,7 @@ namespace DistributeurTDD.Tests
             //Act
             double actualResult = domain.GetPrice("Allongé");
             //Assert
-            Assert.Equal(1.82, actualResult);
+            Assert.Equal(1.82, actualResult,2);
         }
     }
 }

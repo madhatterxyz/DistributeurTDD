@@ -4,28 +4,22 @@ namespace DistributeurTDD.Domain
 {
     public class BeverageDomain
     {
-        private readonly IngredientDomain _ingredientDomain;
+        private List<BeverageDTO> _BeverageDTOs { get; set; }
         public BeverageDomain()
         {
-            _ingredientDomain = new IngredientDomain();
-        }
-        private const double margin = 1.3;
-        public double GetPrice(string v)
-        {
-            double price = 0;
-            IngredientDTO cafe = _ingredientDomain.Get("Café");
-            IngredientDTO eau = _ingredientDomain.Get("Eau");
-            switch (v)
+            _BeverageDTOs = new List<BeverageDTO>()
             {
-                case "Expresso":
-                    price = (cafe.UnitPrice + eau.UnitPrice) * margin;
-                    break;
-                case "Allongé":
-                    price = (cafe.UnitPrice + 2 * eau.UnitPrice) * margin;
-                    break;
-                default: break;
-            }
-            return price;
+                new BeverageDTO() { Id = 1, Name = "Expresso" },
+                new BeverageDTO() { Id = 2, Name = "Allongé" }
+            };
+        }
+        public List<BeverageDTO> GetAll()
+        {
+            return _BeverageDTOs;
+        }
+        public BeverageDTO Get(string name)
+        {
+            return _BeverageDTOs.FirstOrDefault(x => x.Name == name);
         }
     }
 }

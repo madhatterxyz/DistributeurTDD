@@ -8,7 +8,7 @@ namespace DistributeurTDD.Tests
         public void GetPrice_Expresso_ShouldReturn156()
         {
             //Arrange
-            BeverageDomain domain = new BeverageDomain();
+            RecipeDomain domain = new RecipeDomain();
             //Act
             double actualResult = domain.GetPrice("Expresso");
             //Assert
@@ -18,7 +18,7 @@ namespace DistributeurTDD.Tests
         public void GetPrice_Allongé_ShouldReturn182()
         {
             //Arrange
-            BeverageDomain domain = new BeverageDomain();
+            RecipeDomain domain = new RecipeDomain();
             //Act
             double actualResult = domain.GetPrice("Allongé");
             //Assert

@@ -4,25 +4,20 @@ namespace DistributeurTDD.Tests
 {
     public class BeverageTests
     {
-        [Fact]
-        public void GetPrice_Expresso_ShouldReturn156()
+        [Theory]
+        [InlineData("Expresso",1.56)]
+        [InlineData("Allongé", 1.82)]
+        [InlineData("Capuccino", 3.51)]
+        [InlineData("Chocolat",5.33)]
+        [InlineData("Thé", 3.12)]
+        public void GetPrice_Beverage_ShouldReturnCalculatedPrice(string beverageName,double expectedCalculatedPrice)
         {
             //Arrange
             RecipeDomain domain = new RecipeDomain();
             //Act
-            double actualResult = domain.GetPrice("Expresso");
+            double actualResult = domain.GetPrice(beverageName);
             //Assert
-            Assert.Equal(1.56, actualResult);
-        }
-        [Fact]
-        public void GetPrice_Allongé_ShouldReturn182()
-        {
-            //Arrange
-            RecipeDomain domain = new RecipeDomain();
-            //Act
-            double actualResult = domain.GetPrice("Allongé");
-            //Assert
-            Assert.Equal(1.82, actualResult,2);
+            Assert.Equal(expectedCalculatedPrice, actualResult,2);
         }
     }
 }

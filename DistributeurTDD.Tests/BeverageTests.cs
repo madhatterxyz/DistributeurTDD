@@ -10,7 +10,7 @@ namespace DistributeurTDD.Tests
         [InlineData("Capuccino", 3.51)]
         [InlineData("Chocolat",5.33)]
         [InlineData("Thé", 3.12)]
-        public void GetPrice_Beverage_ShouldReturnCalculatedPrice(string beverageName,double expectedCalculatedPrice)
+        public void GetPrice_ValidBeverage_ShouldReturnCalculatedPrice(string beverageName,double expectedCalculatedPrice)
         {
             //Arrange
             RecipeDomain domain = new RecipeDomain();
@@ -18,6 +18,14 @@ namespace DistributeurTDD.Tests
             double actualResult = domain.GetPrice(beverageName);
             //Assert
             Assert.Equal(expectedCalculatedPrice, actualResult,2);
+        }
+        [Fact]
+        public void GetPrice_InvalidBeverage_ShouldReturnNotImplementedException()
+        {
+            //Arrange
+            RecipeDomain domain = new RecipeDomain();
+            //Act & Assert
+            Assert.Throws<NotImplementedException>(()=>domain.GetPrice("unknown"));
         }
     }
 }

@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DistributeurTDD.Domain\DistributeurTDD.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
